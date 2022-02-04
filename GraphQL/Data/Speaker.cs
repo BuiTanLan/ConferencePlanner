@@ -15,4 +15,5 @@ public class Speaker
 
     [StringLength(1000)]
     public string? WebSite { get; set; }
+    public ICollection<Session> Sessions { get; set; } = new List<Session>();
 }

@@ -9,5 +9,10 @@ public class ApplicationDbContext : DbContext
     {
     }
 
+    public DbSet<Attendee> Attendees => Set<Attendee>();
+    public DbSet<Session> Sessions => Set<Session>();
+
     public DbSet<Speaker> Speakers => Set<Speaker>();
+
+    public DbSet<Track> Tracks => Set<Track>();
 }
