@@ -8,7 +8,7 @@ public class Mutation
         string name,
         string? bio,
         string? webSite,
-        [Service] ApplicationDbContext context)
+        [ScopedService] ApplicationDbContext context)
     {
         var speaker = new Speaker
         {
@@ -17,7 +17,12 @@ public class Mutation
             WebSite = webSite
         };
         context.Add(speaker);
-        await context.SaveChangesAsync();
+        var result = await context.SaveChangesAsync();
+        if (result <= 0)
+        {
+            throw new Exception();
+        }
+
         return speaker;
     }
 }
