@@ -9,7 +9,7 @@ public class Query
         => context.Speakers;
 
     public Task<Speaker> GetSpeakerAsync(
-        int id,
+        [ID(nameof(Speaker))] int id,
         SpeakerByIdDataLoader dataLoader,
         CancellationToken cancellationToken) =>
         dataLoader.LoadAsync(id, cancellationToken);
