@@ -21,5 +21,6 @@ public class Attendee
     [StringLength(256)]
     public string? EmailAddress { get; set; }
 
-    public ICollection<Attendee> Attendees { get; set; } = new List<Attendee>();
+    public ICollection<SessionAttendee> SessionsAttendees { get; set; } =
+        new List<SessionAttendee>();
 }

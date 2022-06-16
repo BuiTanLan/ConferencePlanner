@@ -33,7 +33,7 @@ public class SpeakerType: ObjectType<Speaker>
                 .Where(s => s.Id == speaker.Id)
                 .Include(s => s.Sessions)
                 .SelectMany(s => s.Sessions.Select(t => t.Id))
-                .ToArrayAsync(cancellationToken: cancellationToken);
+                .ToListAsync(cancellationToken: cancellationToken);
 
             return await sessionById.LoadAsync(sessionIds, cancellationToken);
         }

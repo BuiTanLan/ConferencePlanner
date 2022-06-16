@@ -25,11 +25,11 @@ public class Session
 
     public int? TrackId { get; set; }
 
-    public ICollection<Speaker> Speakers { get; set; } =
-        new List<Speaker>();
+    public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
+        new List<SessionSpeaker>();
 
-    public ICollection<Attendee> Attendees { get; set; } =
-        new List<Attendee>();
+    public ICollection<SessionAttendee> SessionAttendees { get; set; } =
+        new List<SessionAttendee>();
 
     public Track? Track { get; set; }
 }

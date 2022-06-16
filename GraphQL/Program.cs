@@ -9,9 +9,10 @@ builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<Query>()
+    .AddQueryType<SpeakerQueries>()
     .AddMutationType(d => d.Name("Mutation"))
         .AddTypeExtension<SpeakerMutations>()   
+        .AddTypeExtension<SpeakerMutations>()
     .AddType<SpeakerType>()
     .EnableRelaySupport()
     .AddDataLoader<SpeakerByIdDataLoader>()
